@@ -172,12 +172,9 @@ router.get('/' , async(req , res)=> {
     res.locals.title = "Seja bem vindo"; 
     var exhitorList = await providers.getExhibitors()
     var list = []
-    if(exhitorList.length > 8) {
-        list = exhitorList.slice(0, 8);
-    }else {
-        list = exhitorList
-    }
-    
+    list = exhitorList.slice(0, 6);
+
+   
     var listGallery = await providers.getGallery()
     var liveData = await providers.getLive()
              
@@ -255,8 +252,12 @@ router.get('/perfil' , async(req , res) => {
 router.get("/news", async(req, res) => {
     var uid = req.query.id
     var data = await providers.getPublicationById(uid)
+    var adsList = await providers.getAdsList()
+    var position =[ Math.floor(Math.random() * adsList.length) + 0,  Math.floor(Math.random() * adsList.length) + 0]
+    var listInfo = await providers.getPublication();
+    console.log(listInfo)
 
-    res.render("pages/news-full", {data})
+    res.render("pages/news-full", {data, adsList, position, listInfo})
 })
 
 router.post("/add-info", upload.single('file'), async(req, res) => {

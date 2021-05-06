@@ -21,10 +21,10 @@
         <div class="container">
           <ul class="breadcrumbs-custom-path">
             <li><a href="index.html">Home</a></li>
-            <li><a href="#">News</a></li>
-            <li class="active">News Left Sidebar</li>
+            <li><a href="/info">Noticias</a></li>
+            <!-- <li class="active"><%= data.title %> </li> -->
           </ul>
-          <h3 class="breadcrumbs-custom-title">News Left Sidebar</h3>
+          <!-- <h3 class="breadcrumbs-custom-title">News Left Sidebar</h3> -->
         </div>
       </section>
       <!-- Section Our News-->
@@ -45,7 +45,7 @@
                 </ul>
                 <h3 class="post-title"><a href="single-news.html">  <%= data.title %> </a></h3>
                 <p class="post-excerpt">
-                    <%= data.description %>
+                    <%- data.description %>
                 </p>
                 <!-- <a class="news-link" href="single-news.html">Read More</a> -->
               </article>
@@ -66,19 +66,24 @@
                 </div> -->
                 <div class="col-sm-7 col-md-6 col-lg-12">
                   <div class="post-aside">
-                    <h5 class="post-aside-title">Latest Posts</h5>
+                    <h5 class="post-aside-title">Últimas notícias</h5>
                     <div class="post-aside-content">
+                     <% if(listInfo != 'undefined') {  %>
+                      <% listInfo.forEach(function(info) { %>
                       <div class="post-mini">
                         <div class="unit">
                           <div class="unit-left"><img src="images/single-news-05-59x59.jpg" alt="" width="59" height="59"/>
                           </div>
                           <div class="unit-body">
-                            <p class="post-mini-author">by <a href="#">Dan Fisher</a>
+                            <p class="post-mini-author">por <a href="#"><%= info.author %></a>
                             </p>
-                            <p class="post-mini-title"><a href="#">Many Important Brands Have Given us Their Trust.</a></p>
+                            <p class="post-mini-title"><a href="#"><%= info.title %></a></p>
                           </div>
                         </div>
                       </div>
+                      <%})%>
+                      <%}%>
+
                       <div class="post-mini">
                         <div class="unit">
                           <div class="unit-left"><img src="images/single-news-06-59x59.jpg" alt="" width="59" height="59"/>
@@ -105,53 +110,10 @@
                   </div>
                 </div>
                 <div class="col-sm-5 col-md-6 col-lg-12">
-                  <div class="post-aside">
-                    <h5 class="post-aside-title">Categories</h5>
-                    <div class="post-aside-content">
-                      <ul class="list-marked">
-                        <li><a href="#">Conference</a></li>
-                        <li><a href="#">Event</a></li>
-                        <li><a href="#">Meetings</a></li>
-                        <li><a href="#">Seminar</a></li>
-                        <li><a href="#">Meetups</a></li>
-                        <li><a href="#">Workshop</a></li>
-                      </ul>
-                    </div>
-                  </div>
+                  <img src="<%= adsList[position[1]].urlphoto %>" onclick="openLink('<%= adsList[position[1]].linkRedirect %>','<%= adsList[position[1]].category %>')" alt="" style="width:100%;height:100%;">
                 </div>
-                <div class="col-sm-7 col-md-6 col-lg-12">
-                  <div class="post-aside">
-                    <h5 class="post-aside-title">Archive</h5>
-                    <div class="post-aside-content">
-                      <ul class="list-marked">
-                        <li><a href="#">January 2019</a></li>
-                        <li><a href="#">February 2019</a></li>
-                        <li><a href="#">March 2019</a></li>
-                        <li><a href="#">April 2019</a></li>
-                        <li><a href="#">May 2019</a></li>
-                        <li><a href="#">June 2019</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-5 col-md-6 col-lg-12">
-                  <div class="post-aside">
-                    <h5 class="post-aside-title">Tags</h5>
-                    <div class="post-aside-content">
-                      <ul class="post-aside-list-tag">
-                        <li><a href="#">Event</a></li>
-                        <li><a href="#">Conference</a></li>
-                        <li><a href="#">Seminar</a></li>
-                        <li><a href="#">Meetup</a></li>
-                        <li><a href="#">Workshop</a></li>
-                        <li><a href="#">Meeting</a></li>
-                        <li><a href="#">Business</a></li>
-                        <li><a href="#">Organizer</a></li>
-                        <li><a href="#">Professionals</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+                
+                
               </div>
             </div>
           </div>
