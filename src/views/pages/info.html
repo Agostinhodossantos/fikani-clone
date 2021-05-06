@@ -36,8 +36,8 @@
 
                 <div class="col-md-4">
                   <div class="news">
-                    <div class="news-img"><a href="#" data-triangle=".news-img-overlay"><span class="news-img-overlay"></span><img src="<%= info.urlphoto %>" alt="" width="370" height="284"/></a></div>
-                    <p class="news-meta">por <a class="news-author" href="#"><%= info.author %></a> <span>-</span> <a class="news-time" href="#">
+                    <div class="news-img"><a href="/news?id=<%=info.uid%>" data-triangle=".news-img-overlay"><span class="news-img-overlay"></span><img src="<%= info.urlphoto %>" alt="" width="370" height="284"/></a></div>
+                    <p class="news-meta">por <a class="news-author" href="/news?id=<%=info.uid%>"><%= info.author %></a> <span>-</span> <a class="news-time" href="#">
                         <time datetime="2021-01-18"><%= info.date %></time></a>
                     </p>
                     <h4 class="news-title"><a href="#"> <%= info.title %> </a></h4>
